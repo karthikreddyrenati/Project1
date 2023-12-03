@@ -1,0 +1,13 @@
+// ------------------------------------------------------------------
+// List of ignite-ml-xgboost-model-parser module's dependencies provided as a part of this distribution
+// which licenses differ from Apache Software License.
+// ------------------------------------------------------------------
+
+==============================================================================
+For ANTLR 4 Runtime (http://www.antlr.org/antlr4-runtime) org.antlr:antlr4-runtime:jar:4.7.1
+==============================================================================
+This product bundles ANTLR 4 Runtime which is available under a:
+The BSD License. For details, see http://www.antlr.org/license.html.
+
+
+
