@@ -1,6 +1,7 @@
 import luigi
 from Pipeline.DataLoading import LoadDataTask
 import pandas as pd
+import json
 
 class PreprocessDataTask(luigi.Task):
     def requires(self):

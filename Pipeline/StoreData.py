@@ -3,6 +3,7 @@ import luigi
 from Pipeline.DataIntegration import IntegrateDataTask
 from IgniteConnect import IgniteConnector
 import pandas as pd
+import json
 def getIgniteConnection():
     instance = IgniteConnector()
     instance.connect()
@@ -27,7 +28,14 @@ class StoreInIgniteTask(luigi.Task):
         'cache_name': 'test_cache',
         'template_name': 'replicated'
         }
-        
+
+        if self.file_type == 'pdb':
+            with open(self.input().path, 'r') as file:
+                json_data = file.read()
+        elif self.file_type == 'xyz':
+            with open(self.input().path, 'r') as file:
+                json_data = json.load(file)
+
         df = pd.read_csv("Data/integrated_data.csv")
         dfAsDict = df.to_dict(orient='list')
 
