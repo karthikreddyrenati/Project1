@@ -161,3 +161,7 @@ cython_debug/
 apache-ignite-2.15.0-bin/work/*
 
 Data/*
+
+Pipeline/__pycache__/*
+
+__pycache__/*
