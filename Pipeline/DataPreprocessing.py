@@ -9,14 +9,14 @@ class PreprocessDataTask(luigi.Task):
         return LoadDataTask()
 
     def output(self):
-        return luigi.LocalTarget("Data/preprocessed_data.csv")
+        return luigi.LocalTarget("Data/dataprocess_stage_output.csv")
 
     def run(self):
         #Logic for pre-processing
 
-        dataFrame = pd.read_csv("Data/raw_data.csv")
+        dataFrame = pd.read_csv("Data/dataload_stage_output.csv")
         dataFrame.dropna()
-        
+
         dataFrame.to_csv(self.output().path, index=False)
 
 

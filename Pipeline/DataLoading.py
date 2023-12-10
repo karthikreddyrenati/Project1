@@ -7,20 +7,16 @@ from collections import defaultdict
 import json
 
 class LoadDataTask(luigi.Task):
-    file_type = luigi.Parameter()
+    # file_type = luigi.Parameter()
     def output(self):
-        # # Mention path for pipeline task output if needed
-        # if self.file_type == 'crd':
-        #     return luigi.LocalTarget("Data/raw_data_crd.csv")
-        # elif self.file_type == "pdb":
-        #     return luigi.LocalTarget("temp_processed_data.json")
-        # elif self.file_type == "xyz":
-        #     return luigi.LocalTarget("Data/raw_data_xyz.json")
-        pass
+        return luigi.LocalTarget("Data/dataload_stage_output.csv")
 
 
     def run(self):
-        pass
+        
 
+        df = pd.read_csv('Data/1h9t_traj.xyz.gz', compression='gzip', delim_whitespace=True, names=['atoms', 'x', 'y', 'z'], skiprows=2)
 
+        sample_df = df.head()
 
+        sample_df.to_csv(self.output().path, index=False)
