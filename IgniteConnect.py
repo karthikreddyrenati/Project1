@@ -14,11 +14,11 @@ class IgniteConnector:
             print("Ignite Client Connected.")
 
         else:
-            print("Ignite clinet is already established.")
+            print("Ignite Client is already established.")
 
     def get_client(self):
         if not self._instance:
-            raise Exception("Ignite client is not connected. Call connect() first.")
+            raise Exception("Ignite Client is not connected. Call connect() first.")
         return self._instance
 
     def close_connection(self):
